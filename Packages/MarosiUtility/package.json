@@ -1,0 +1,14 @@
+{
+  "name": "com.marosi.utility",
+  "version": "1.3.8",
+  "displayName": "Marosi Utility",
+  "description": "Csaba Marosi's Unity Utility package",
+  "unity": "2019.4",
+  "type": "library",
+  "hideInEditor": false,
+  "author": {
+    "name": "Csaba Marosi",
+    "email": "marosicsaba91@gmail.com",
+    "url": "csabamarosi.net/unity-tools/"
+  }
+}

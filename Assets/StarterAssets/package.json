@@ -1,0 +1,17 @@
+{
+  "name": "com.marosi.starterassets",
+  "version": "1.0.0",
+  "displayName": "Starter Assets",
+  "description": "This is a few Asset from multiple free sources renamed, rearranged and resized.",
+  "type": "sample",
+  "samples": {
+    "displayName": "LooseLink Sample",
+    "description": "Sample project using LooseLink",
+    "path": "Samples~"
+  },
+  "author": {
+    "name": "Csaba Marosi",
+    "email": "marosicsaba91@gmail.com",
+    "url": "csabamarosi.net/unity-tools/"
+  }
+}
