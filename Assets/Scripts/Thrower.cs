@@ -14,7 +14,7 @@ public class Thrower : MonoBehaviour
 
 	Plane _startPlane;
 
-	Plane ObjectPlane => new Plane(transform.position, Vector3.forward);
+	Plane ObjectPlane => new(transform.position, Vector3.forward);
 
 	Ray MouseRay => Camera.main.ScreenPointToRay(Input.mousePosition);
 	Vector3 PointOfActionLocal => rigidBody.centerOfMass + pointOfAction;
@@ -24,13 +24,50 @@ public class Thrower : MonoBehaviour
 	{
 		get
 		{
+			string[,] matrix2 = new string[4, 2];       // 2D tömb  Mérete: 4*2
+			int lengt = matrix2.Length;                 // 8
+			int rank = matrix2.Rank;                    // 2
+			int length0 = matrix2.GetLength(0);         // 4
+			int length1 = matrix2.GetLength(1);         // 2
+			int lowerBound0 = matrix2.GetLowerBound(0); // 0
+
+			for(int i = 0; i < matrix2.GetLength(0); i++)
+			{
+				for(int j = 0; j < matrix2.GetLength(1); j++)
+				{
+					matrix2[i, j] = i + " " + j;
+				}
+			}
+
+
+
+
+			Vector2 A = Vector2.right;
+			Vector2 B = Vector2.up;
+
+			float angle1 = Vector2.Angle(A, B);
+			// result is 90 degrees
+			float angle2 = Vector2.Angle(B, A);
+			// result is 90 degrees
+
+
+			float signedAngle1 = Vector2.SignedAngle(A, B);
+			// result is 90 degrees
+			float signedAngle2 = Vector2.SignedAngle(B, A);
+			// result is -90 degrees
+
+
+
+
+
+
 			Vector3 dir = _startPos - _dragPos;
 			float magnitude = dir.magnitude;
 			if (magnitude == 0)
 				return Vector3.zero;
 			float distanceNormalized = Mathf.InverseLerp(0, maxDistance, dir.magnitude);
 			Debug.Log(dir.magnitude + "  " + distanceNormalized);
-			Vector3 velocity = dir.normalized * velocityMultiplier * distanceNormalized;
+			Vector3 velocity = distanceNormalized * velocityMultiplier * dir.normalized;
 			return velocity;
 		}
 	}
